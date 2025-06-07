@@ -3,8 +3,8 @@
  <h2>Module 11. HTTP requests and interaction with the backend</h2>
  
 <ul>
-    <li>I understand the difference between synchronous and asynchronous code</li>
-    <li>I know how to delay a function call for a certain amount of time using timeouts and intervals</li>
-    <li>I understand what promises are and how they work</li>
-    <li>I know the basic methods of the Promise class</li>
+    <li>I understood the difference between HTTP and HTTPS protocols</li>
+    <li>I learned the basic HTTP methods and how to use them</li>
+    <li>I understood what CRUD is</li>
+    <li>I learned how to interact with the backend</li>
 </ul>

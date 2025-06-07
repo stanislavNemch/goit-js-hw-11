@@ -35,10 +35,16 @@ searchForm.addEventListener('submit', async event => {
     if (data.hits.length === 0) {
       // Якщо бекенд повернув порожній масив
       iziToast.info({
-        title: 'Info',
+        // title: 'Info',
         message:
-          'Sorry, there are no images matching your search query. Please try again!',
+          '❌ Sorry, there are no images matching your search query. Please try again!',
         position: 'topRight',
+        icon: false,
+        close: false,
+        backgroundColor: '#ef4040', // Червоний фон
+        maxWidth: '432px', // Задана ширина
+        minHeight: '88px', // Мінімальна висота для наближення до 88px
+        html: true, // Включаємо підтримку HTML у повідомленні
       });
     } else {
       // Якщо знайдені зображення
