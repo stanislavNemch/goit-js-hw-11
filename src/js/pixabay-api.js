@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-// Теперь базовый URL указывает на наш локальный прокси
-const BASE_URL = '/api/';
+const API_KEY = import.meta.env.VITE_API_KEY;
+const BASE_URL = 'https://pixabay.com/api/';
 
 export function getImagesByQuery(query) {
-  // Ключ API больше не нужен на клиенте, он будет добавлен на сервере
   const params = {
+    key: API_KEY,
     q: query,
     image_type: 'photo',
     orientation: 'horizontal',
@@ -16,7 +16,7 @@ export function getImagesByQuery(query) {
     .get(BASE_URL, { params })
     .then(response => response.data)
     .catch(error => {
-      console.error('Error fetching images via proxy:', error);
-      throw new Error('Failed to fetch images from Pixabay via proxy.');
+      console.error('Error fetching images:', error);
+      throw new Error('Failed to fetch images from Pixabay.');
     });
 }
