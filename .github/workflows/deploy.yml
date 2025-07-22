@@ -1,13 +1,16 @@
 # .github/workflows/deploy.yml
-name: Deploy to GitHub Pages
+name: Deploy project to GitHub Pages
 
 on:
   push:
     branches:
-      - main # Или ваша основная ветка
+      - main
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
+    permissions:
+      contents: write # Allow write to repo for gh-pages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -16,20 +19,22 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Укажите вашу версию Node.js
+          node-version: '20'
           cache: 'npm'
 
       - name: Install dependencies
         run: npm install
 
       - name: Build
+        # Команда сборки из вашего package.json
         run: npm run build
         env:
-          # Эта строка делает секрет доступным для Vite во время сборки
+          # Эта строка делает секрет из GitHub доступным для Vite во время сборки
           VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Папка для деплоя, указанная в вашем vite.config.js (outDir)
           publish_dir: ./dist
