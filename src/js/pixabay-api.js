@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_KEY = import.meta.env.VITE_API_KEY;
+const API_KEY = '50678696-ed6f097088bf5690dd98584b9';
 const BASE_URL = 'https://pixabay.com/api/';
 
 export function getImagesByQuery(query) {
