@@ -1,6 +1,7 @@
 import axios from 'axios';
+import 'dotenv/config';
 
-const API_KEY = '50678696-ed6f097088bf5690dd98584b9';
+const API_KEY = process.env.API_KEY;
 const BASE_URL = 'https://pixabay.com/api/';
 
 export function getImagesByQuery(query) {
